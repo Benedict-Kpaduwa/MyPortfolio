@@ -1,11 +1,13 @@
 import React, {useState} from "react";
-import styled, {keyframes} from "styled-components";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 import PowerButton from "../subComponents/PowerButton";
 import LogoComponent from "../subComponents/LogoComponent";
 import {NavLink} from "react-router-dom";
 //import { Container } from "tsparticles";
 import SocialIcons from "../subComponents/SocialIcons";
 import { YinYang } from "./AllSvgs";
+import Intro from "./Intro";
 
 const MainContainer = styled.div`
     background: $(props => props.theme.text);
@@ -43,7 +45,7 @@ const BLOG = styled(NavLink)`
     z-index: 1;
 `
 const WORK = styled(NavLink)`
-    color: ${props => props.theme.text};
+color: ${props => props.click ? props.theme.body : props.theme.text};
     position: absolute;
     top: 50%;
     left: calc(1rem + 2vw);
@@ -62,7 +64,7 @@ const BottomBar = styled.div`
     justify-content: space-evenly;
 `
 const ABOUT = styled(NavLink)`
-    color: ${props => props.theme.text};
+    color: ${props => props.click ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index: 1;
 `
@@ -72,14 +74,14 @@ const SKILLS = styled(NavLink)`
     z-index: 1;
 `
 
-const rotate = keyframes`
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-`
+// const rotate = keyframes`
+//     from{
+//         transform: rotate(0deg);
+//     }
+//     to{
+//         transform: rotate(360deg);
+//     }
+// `
 
 const Center = styled.button`
     position: absolute;
@@ -117,6 +119,18 @@ const Center = styled.button`
     }
 `
 
+const DarkDiv = styled.div`
+    position: absolute;
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    width: ${props => props.click ? "50%" : "0%"};
+    height: ${props => props.click ? "100%" : "0%"};;
+    z-index: 1;
+    transition: height 0.5s ease, width 1s ease 0.5s
+`
+
 
 const Main =()=> {
 
@@ -125,10 +139,12 @@ const Main =()=> {
 
     return(
         <MainContainer>
+            <DarkDiv click={click} />
             <MyContainer>
                 <PowerButton />
-                <LogoComponent />
-                <SocialIcons />
+                <LogoComponent theme={click ? "dark" : "light"}/>
+                <SocialIcons theme={click ? "dark" : "light"}/>
+                
 
                 <Center click={click}>
                     <YinYang onClick={() => handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill="currentColor" />
@@ -136,24 +152,25 @@ const Main =()=> {
                 </Center>
                 
                 <Contact target="_blank" to={{pathname: "mailto:benedictkpaduwa@gmail.com"}}>
-                    <h3>Say hi... </h3>
+                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Say hi... </motion.h3>
                 </Contact>
                 <BLOG to="/Blog">
-                    <h3>Blog</h3>
+                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Blog</motion.h3>
                 </BLOG>
-                <WORK to="/work">
-                    <h3>Work</h3>
+                <WORK to="/work" click={click}>
+                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Work</motion.h3>
                 </WORK>
 
                 <BottomBar>
-                    <ABOUT to="/About">
-                        <h3>About.</h3>
+                    <ABOUT to="/About" click={click}>
+                        <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>About.</motion.h3>
                     </ABOUT>
                     <SKILLS to="/skills">
-                        <h3>My Skills.</h3>
+                        <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>My Skills.</motion.h3>
                     </SKILLS>
                 </BottomBar>
             </MyContainer>
+            {click ? <Intro click={click}/> : null}
         </MainContainer>
     )
 }
