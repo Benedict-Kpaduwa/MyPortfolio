@@ -2,7 +2,7 @@ import React from "react";
 import GlobalStyle from "./globalStyles";
 import {ThemeProvider} from "styled-components";
 import {lightTheme} from "./components/Themes";
-import {DarkTheme} from "./components/Themes";
+//import {DarkTheme} from "./components/Themes";
 import {Route, Switch, useLocation} from "react-router";
 
 //components

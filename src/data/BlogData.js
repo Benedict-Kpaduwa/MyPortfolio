@@ -8,5 +8,4 @@ export const Blogs = [
         link:"https://dev.to/codebucks/build-website-with-reactjs-styled-components-and-gsap-for-scrolling-animations-2f10"
     },
     
-  
 ] 
