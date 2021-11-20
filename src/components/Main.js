@@ -152,21 +152,21 @@ const Main =()=> {
                 </Center>
                 
                 <Contact target="_blank" to={{pathname: "mailto:benedictkpaduwa@gmail.com"}}>
-                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Say hi... </motion.h3>
+                    <motion.h2 initial={{y: -200, transition: {type: "spring", duration: 1.5, delay: 1}}} animate={{y: 0, transition: {type: "spring", duration: 1.5, delay: 1}}} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Say hi... </motion.h2>
                 </Contact>
                 <BLOG to="/Blog">
-                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Blog</motion.h3>
+                    <motion.h2 initial={{y: -200, transition: {type: "spring", duration: 1.5, delay: 1}}} animate={{y: 0, transition: {type: "spring", duration: 1.5, delay: 1}}} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Blog</motion.h2>
                 </BLOG>
                 <WORK to="/work" click={click}>
-                    <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Work</motion.h3>
+                    <motion.h2 initial={{y: -200, transition: {type: "spring", duration: 1.5, delay: 1}}} animate={{y: 0, transition: {type: "spring", duration: 1.5, delay: 1}}}whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>Projects</motion.h2>
                 </WORK>
 
                 <BottomBar>
                     <ABOUT to="/About" click={click}>
-                        <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>About.</motion.h3>
+                        <motion.h2 initial={{y: 200, transition: {type: "spring", duration: 1.5, delay: 1}}} animate={{y: 0, transition: {type: "spring", duration: 1.5, delay: 1}}} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>About.</motion.h2>
                     </ABOUT>
                     <SKILLS to="/skills">
-                        <motion.h3 whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>My Skills.</motion.h3>
+                        <motion.h2 initial={{y: 200, transition: {type: "spring", duration: 1.5, delay: 1}}} animate={{y: 0, transition: {type: "spring", duration: 1.5, delay: 1}}} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>My Skills.</motion.h2>
                     </SKILLS>
                 </BottomBar>
             </MyContainer>
