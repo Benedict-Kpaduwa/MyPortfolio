@@ -5,7 +5,7 @@ export const Work = [
         description:"A movie database that allows users to view list of available movies to watch from, review them and rate it",
         tags:["react","styledComponents"],
         
-        demo:"benedictkrmdb.netlify.app",
+        demo:"https://benedictkrmdb.netlify.app",
         github:"https://github.com/Benedict-Kpaduwa/React-Movie-Database"
     },
     
